@@ -40,4 +40,31 @@ const countries = [
     'Turkmenistan', 'Turks & Caicos', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States of America', 'Uruguay',
     'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam', 'Virgin Islands (US)', 'Yemen', 'Zambia', 'Zimbabwe'
   ];
+
+  const email = document.getElementById("email")
+  const form = document.querySelector("form");
+
+  email.addEventListener("focusout", (event)=>{
+    let regExEmailTest = /^\S+@\S+\.\S+$/ //basic check
+    if (regExEmailTest.test(email.value)){
+      document.getElementById("email-message").innerText = "This is an e-mail address alright."
+    } else {
+      document.getElementById("email-message").innerText = "Please enter a valid e-mail address."
+    }
+  })
   
+  form.addEventListener("submit", (event) => {
+    console.log("submit")
+    event.preventDefault();
+
+  });
+
+  /*
+generic plan for all fields:
+  grab div
+  for input field check validity - have a function for each type
+  grab message element - the only span in the div
+  display appropriate message - define within the event listener adding of each field (check if this will work as expected)
+  mark the appropriate elements with correct classes - message red or green, field valid or invalid (&also red or green)
+
+  */

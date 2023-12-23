@@ -10,16 +10,31 @@
 
         <fieldset>
             <legend>Form</legend>
-            <label for="email">Enter your e-mail address:</label>
-            <input id ="email" type="email"><br>
-            <label for="country">Enter your country of residence:</label>
-            <input id ="country" type="text"><br>
-            <label for="zip">Zip code:</label>
-            <input id ="zip" type="text"><br>
-            <label for="pass">Password:</label>
-            <input id ="pass" type="text"><br>
-            <label for="pass2">Confirm password:</label>
-            <input id ="pass2" type="text"><br>
+            <div id="email-div">
+                <label for="email">Enter your e-mail address:</label>
+                <input id ="email" type="email"><span id="email-message"></span><br>
+
+            </div>
+            <div id="country-div">
+                <label for="country">Enter your country of residence:</label>
+                <input id ="country" type="text"><span id="country-message"></span><br>
+
+            </div>
+            <div id="zip-div">
+                <label for="zip">Zip code:</label>
+                <input id ="zip" type="text"><span id="zip-message"></span><br>
+
+            </div>
+            <div id="pass-div">
+                <label for="pass">Password:</label>
+                <input id ="pass" type="text"><span id="pass-message"></span><br>
+
+            </div>
+            <div id="pass2-div">
+                <label for="pass2">Confirm password:</label>
+                <input id ="pass2" type="text"><span id="pass2-message"></span><br>
+
+            </div>
             <input type="submit" value="Submit">
         </fieldset>
     </form>
