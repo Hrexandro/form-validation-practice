@@ -45,12 +45,17 @@ const countries = [
   const form = document.querySelector("form");
 
   email.addEventListener("focusout", (event)=>{
-    let regExEmailTest = /^\S+@\S+\.\S+$/ //basic check
-    if (regExEmailTest.test(email.value)){
-      document.getElementById("email-message").innerText = "This is an e-mail address alright."
-    } else {
-      document.getElementById("email-message").innerText = "Please enter a valid e-mail address."
-    }
+    // let regExEmailTest = /^\S+@\S+\.\S+$/ //basic check
+    // if (regExEmailTest.test(email.value)){
+    //   document.getElementById("email-message").innerText = "This is an e-mail address alright."
+    // } else {
+    //   document.getElementById("email-message").innerText = "Please enter a valid e-mail address."
+    // }
+
+    let validMessage = "This is an e-mail address alright."
+    let invalidMessage = "Please enter a valid e-mail address."
+
+    applyValidationToFormElement("email-div", validateEmail, validMessage, invalidMessage)
   })
   
   form.addEventListener("submit", (event) => {
@@ -58,6 +63,29 @@ const countries = [
     event.preventDefault();
 
   });
+
+  function validateEmail(text){
+    let regExEmailTest = /^\S+@\S+\.\S+$/ //basic check
+    if (regExEmailTest.test(text)){
+      return true
+    } else {
+      return false
+    }
+  }
+
+  function applyValidationToFormElement(divId, validationFunction, validMessage, invalidMessage){
+    let div = document.getElementById(divId)
+    let inputFieldValue = div.getElementsByTagName('input')[0].value
+    let message = div.getElementsByClassName('message')[0]
+
+    if (validationFunction(inputFieldValue)){
+      message.innerText = validMessage
+    } else {
+      message.innerText = invalidMessage
+    }
+  }
+
+  applyValidationToFormElement("email-div")
 
   /*
 generic plan for all fields:
@@ -67,4 +95,7 @@ generic plan for all fields:
   display appropriate message - define within the event listener adding of each field (check if this will work as expected)
   mark the appropriate elements with correct classes - message red or green, field valid or invalid (&also red or green)
 
+
+
+  function 1: apply correct stylings to
   */
